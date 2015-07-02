@@ -4,23 +4,12 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface WebViewController : WebView <NSDraggingDestination>
-{
-   @private
-   // NSTimer *timer;//?
-   // unsigned long frameCounter;//?
-    
+@interface WebViewController : WebView <NSDraggingDestination>{
+
 }
 
-- (void) init2;
+- (void) init;
 
-/*- (void) setFrameRate: (float) fr;
-- (void) startTimer;
-- (void) eraseTimer;
 
-- (int) getFrameNum;
-- (float) getFrameRate;
-- (float) getRealFrameRate;
-*/
 
 @end

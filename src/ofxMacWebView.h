@@ -21,27 +21,15 @@ public:
     virtual ~ofxMacWebView();
     ofxMacWebView( const ofxMacWebView& other );
     
-    
-    void updateSlide(ofEventArgs & e);
-    void drawSlide(ofEventArgs & e);
-    void resizeSlide(ofResizeEventArgs & e);
-    
-    void goToUrl(string url);
-    
-    void setEventsEnabled(bool enabled); // true by default
-    void setAutorefreshEnabled(bool enabled); // false by default
+    void load(string url);
 
     void clearHTML();
     void refreshHTML();
 
-    void setupWebkit();
-    void cleanupWebkit();
+    void setup();
+    void cleanup();
     
     void setWebViewKeyFocus(bool focus);
-    
-protected:
-
-    size_t slideIndex;
     
 private:
     
@@ -55,18 +43,6 @@ private:
     
     bool eventStreamRunning;
     FSEventStreamRef eventStream;
-    
-    void setWebViewPageName(const std::string &pageName);
-    void setWebViewHidden(bool hidden);
-    void setWebViewFrame(ofRectangle frame);
 
-    
-    void setVideoPlayerVideoName(const std::string &videoName);
-    void setVideoPlayerHidden(bool hidden);
-    
-    ofPtr<ofVideoGrabber> _sharedVideoGrabber;
-    bool _didInitFirstSlide;
-    bool _allowKeyCapture;
-    bool _eventsEnabled;
-    bool _listeningToEvents;
+    void setWebViewFrame(ofRectangle frame);
 };

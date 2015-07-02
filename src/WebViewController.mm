@@ -9,14 +9,14 @@
 @implementation WebViewController
 
 
--(void) init2
+-(void) init
 {
     [self setUIDelegate:self];
     [self setEditingDelegate:self];
 }
 
 - (BOOL)validateMenuItem:(NSMenuItem *)item {
-    cout << "\n Validate menu item";
+    //disable right click menu
     BOOL shouldEnable = false;
     if ([item action] == @selector(newContextualMenu:) &&
         !shouldEnable) {
