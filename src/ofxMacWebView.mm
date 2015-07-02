@@ -28,13 +28,16 @@ void ofxMacWebView::setup() {
     [webView setHostWindow:window];
     [window.contentView addSubview:webView];
     
-    /*[NSEvent addLocalMonitorForEventsMatchingMask:NSKeyDownMask handler:^ NSEvent * (NSEvent * event) {
-     if(!_allowKeyCapture) {
-     [window makeFirstResponder:window.contentView];
-     }
+    //[window makeFirstResponder: window.contentView];
+    
+    [NSEvent addLocalMonitorForEventsMatchingMask:NSKeyDownMask handler:^ NSEvent * (NSEvent * event)
+    {
+        //[window makeFirstResponder: window.contentView];
+        //[window makeFirstResponder: webView];
      return event;
      }];
-     */
+
+    
 }
 
 
@@ -48,7 +51,6 @@ void ofxMacWebView::cleanup() {
     [webView removeFromSuperview];
     [webView release];
 }
-
 
 void ofxMacWebView::setWebViewFrame(ofRectangle frame) {
     NSRect f;
@@ -71,5 +73,3 @@ void ofxMacWebView::setWebViewKeyFocus(bool focus) {
 void ofxMacWebView::clearHTML() {
     [[webView mainFrame] loadHTMLString:@"" baseURL:nil];
 }
-
-
