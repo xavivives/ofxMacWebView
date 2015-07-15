@@ -22,6 +22,8 @@ public:
     ofxMacWebView( const ofxMacWebView& other );
     
     void load(string url);
+    void showBackground(bool show);
+    void show(bool show);
 
     void clearHTML();
     void refreshHTML();
